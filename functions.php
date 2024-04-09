@@ -1,5 +1,5 @@
 <?php
-function MailSend(string $body, string $mailFrom,  string $mailTo,  string $subject): string
+function MailSend(string $body, string $mailFrom,  string $mailTo, string $subject): string
 {
     $mail = new PHPMailer\PHPMailer\PHPMailer();
     try {
@@ -12,15 +12,12 @@ function MailSend(string $body, string $mailFrom,  string $mailTo,  string $subj
         $mail->SMTPSecure = 'tls';
         $mail->Port       = 2525;
         $mail->setFrom($mailFrom);
-
     
         $mail->addAddress($mailTo);
-        
 
         $mail->isHTML(true);
         $mail->Subject = $subject;
         $mail->Body = $body;
-
 
         if ($mail->send()) {
             $result = "Сообщение отправлено";
@@ -52,10 +49,10 @@ function Validation(string $regEx, string $field): mixed
     return $message;
 }
 
-function AutoComplite(string $field): string
+function AutoComplite(mixed $field): string
 {
     if ($field) {
-        return $field; 
+        return $field;
     } else {
         return '';
     }

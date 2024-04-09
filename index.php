@@ -17,28 +17,28 @@ include_once('sendmail.php');
             <form class="form" name="feedback" method="POST" action="<?php $_SERVER['REQUEST_URI'] ?>">
                 <div class="caption"><h1>Обратная связь</h1></div>
                 <div class="formTitle">Ваше имя</div>
-                <input class="inputField" type="text" name="user_name" value="<?=AutoComplite($name)?>">
+                <input class="inputField" type="text" name="user_name" value="<?= AutoComplite($name) ?>" required>
                 <?php
                 if ($ValidName) {
                     echo '<p class="message">' . $ValidName . '</p>';
                 }
                 ?>
                 <div class="formTitle">Ваш email</div>
-                <input class="inputField" type="email" name="user_email" value="<?=AutoComplite($email)?>">
+                <input class="inputField" type="email" name="user_email" value="<?= AutoComplite($email) ?>" required>
                 <?php
                 if ($ValidEmail) {
                     echo '<p class="message">' . $ValidEmail . '</p>';
                 }
                 ?>
                 <div class="formTitle">Имя получателя</div>
-                <input class="inputField" type="text" name="rcpt_name" value="<?=AutoComplite($rcptName)?>">
+                <input class="inputField" type="text" name="rcpt_name" value="<?= AutoComplite($rcptName) ?>" required>
                 <?php
                 if ($ValidRcptName) {
                     echo '<p class="message">' . $ValidRcptName . '</p>';
                 }
                 ?>
                 <div  class="formTitle">email получателя</div>
-                <input class="inputField" type="email" name="rcpt_email" value="<?=AutoComplite($rcptEmail)?>">
+                <input class="inputField" type="email" name="rcpt_email" value="<?= AutoComplite($rcptEmail) ?>" required>
                 <?php
                 if ($ValidRcptEmail) {
                     echo '<p class="message">' . $ValidRcptEmail . '</p>';
@@ -52,6 +52,7 @@ include_once('sendmail.php');
                 <?php
                 ?>
             </form>
+        </div>
     </div>
 </body>
 </html>
