@@ -30,7 +30,6 @@ function MailSend(string $body, string $mailFrom,  string $mailTo, string $subje
     }
 
     return $result;
-
 }
 
 function Message(string $name, string $rcptName, string $message): string

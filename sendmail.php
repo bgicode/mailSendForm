@@ -5,6 +5,7 @@ require_once('phpmailer/PHPMailer.php');
 require_once('phpmailer/SMTP.php');
 require_once('phpmailer/Exception.php');
 include_once('functions.php');
+include_once("result.php");
 
 $site = $_SERVER['HTTP_HOST'];
 
@@ -19,7 +20,7 @@ if ($_POST['submit_btn']) {
     $text = trim(htmlspecialchars($_POST['message']));
 
     $regExName = '/[а-яА-я][а-я]*([ ][а-яА-я][а-я]*){0,2}/';
-    $regExEmail = '/[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}/i';
+    $regExEmail = '/[-0-9a-z_\.]+@[-0-9a-z^\.]+\.[a-z]{2,}/i';
 
     $ValidName = Validation($regExName, $name);
     $ValidEmail = Validation($regExEmail, $email);
@@ -33,10 +34,9 @@ if ($_POST['submit_btn']) {
         && !$ValidRcptEmail
     ) {
         $body = Message($name, $rcptName, $text);
-        exit("<div style='margin-left: 20px; margin-top: 20px;'>
-                <p>" . MailSend($body, $email, $rcptEmail, $subject) . ";</p>
-                <a href='index.php' style = 'margin-bottom: 15px; padding: 10px 20px; display: inline-block;
-                background: rgb(200, 200, 200); text-decoration: none;'>OK</a>
-            </div>");
+
+        $send = MailSend($body, $email, $rcptEmail, $subject);
+
+        exit(EndSend($send));
     }
 }
