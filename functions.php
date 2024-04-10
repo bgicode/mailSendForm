@@ -1,16 +1,37 @@
 <?php
-function MailSend(string $body, string $mailFrom,  string $mailTo, string $subject): string
+// function MailSend(string $body, string $mailFrom, string $mailTo, string $subject): string
+// {
+//     $username = "zwV5XDkwhFev";
+//     $password = "XKnvNXXPcXq0";
+//     $host = "tls://smtp.mailsnag.com";
+//     $port = "2525";
+
+//     $smtp = new SendMailSmtpClass($username, $password, $host, $mailFrom, $port);
+
+//     $headers = "From: $mailFrom\r\n";
+//     $headers .= "Content-type: text/html; charset=utf-8\r\n";
+    
+//     if ($smtp->send($mailTo, $subject, $body, $headers)) {
+//         $result = "Сообщение отправлено";
+//     } else {
+//         $result = "Сообщение не было отправлено";
+//     }
+
+//     return $result;
+// }
+
+function MailSend(string $body, string $mailFrom, string $mailTo, string $subject): string
 {
     $mail = new PHPMailer\PHPMailer\PHPMailer();
     try {
         $mail->isSMTP();
         $mail->CharSet = "UTF-8";
         $mail->SMTPAuth = true;
-        $mail->Host       = 'smtp.mailsnag.com'; 
-        $mail->Username   = 'zwV5XDkwhFev';
-        $mail->Password   = 'XKnvNXXPcXq0';
+        $mail->Host = 'smtp.mailsnag.com'; 
+        $mail->Username = 'zwV5XDkwhFev';
+        $mail->Password = 'XKnvNXXPcXq0';
         $mail->SMTPSecure = 'tls';
-        $mail->Port       = 2525;
+        $mail->Port = 2525;
         $mail->setFrom($mailFrom);
     
         $mail->addAddress($mailTo);

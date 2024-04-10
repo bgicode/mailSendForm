@@ -22,5 +22,5 @@ function EndSend($calback)
         </div>
     </body>
     </html>
-    END;    
+    END;
 }

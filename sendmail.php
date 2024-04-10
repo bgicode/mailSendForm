@@ -6,6 +6,7 @@ require_once('phpmailer/SMTP.php');
 require_once('phpmailer/Exception.php');
 include_once('functions.php');
 include_once("result.php");
+include_once('SendMailSmtpClass.php');
 
 $site = $_SERVER['HTTP_HOST'];
 
