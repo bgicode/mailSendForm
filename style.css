@@ -53,7 +53,6 @@ textarea {
 .submitBtn {
     margin-top: 10px;
     font-size: 18px;
-    line-height: 22px;
     padding: 10px 20px;
     outline: 0;
     border-radius: 5px;
@@ -83,13 +82,16 @@ form {
 }
 
 .formWraper {
-    margin-top: 50px;
     margin-left: auto;
     margin-right: auto;
     width: 30%;
     background-color: rgb(95, 71, 141);
     padding: 20px;
     border-radius: 5px;
+}
+
+.wrap {
+    padding-top: 50px;
 }
 
 .message {
@@ -100,4 +102,21 @@ form {
 
 .endMessage {
     margin-bottom: 20px;
+    width: 100%;
+}
+
+.endMessageWrap {
+    position: absolute;
+    top: 0px;
+    background-color: rgba(0, 0, 0, 0.85);
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.endformWraper {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    font-size: 30px;
 }

@@ -2,19 +2,18 @@
 declare(strict_types = 1);
 
 include_once('functions.php');
-include_once("result.php");
 include_once('SendMailSmtpClass.php');
 
 $site = $_SERVER['HTTP_HOST'];
 
 $subject = "С сайта: $site отправлено сообщение";
 
+$endSend = false;
+
 if ($_POST['submit_btn']) {
 
     $username = "TtKDlDkv3dE2";
     $password = "PwwLiM8iVzZp";
-    // $username = "zwV5XDkwhFev";
-    // $password = "XKnvNXXPcXq0";
     $host = "smtp.mailsnag.com";
     $port = "2525";
 
@@ -40,6 +39,6 @@ if ($_POST['submit_btn']) {
 
         $send = MailSend($body, $email, $rcptEmail, $subject, $smtp);
 
-        exit(EndSend($send));
+        $endSend = true;
     }
 }

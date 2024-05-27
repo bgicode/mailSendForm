@@ -10,6 +10,7 @@ include_once('sendmail.php');
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Document</title>
 <link rel="stylesheet" type="text/css" href="style.css" >
+<script src="./script.js" type="text/javascript"></script>
 </head>
 <body class="bodyFeed">
     <div class="wrap">
@@ -62,10 +63,21 @@ include_once('sendmail.php');
                 <div>
                 <input class="submitBtn" type="submit" name="submit_btn" value="Отправить">
                 </div>
-                <?php
-                ?>
+                
             </form>
         </div>
     </div>
+    <?php
+                    if ($endSend) {
+                        echo '<div class="endMessageWrap">
+                        <div class="endformWraper">
+                            <div class="endMessage"> 
+                                <p>' . $send . '</p>
+                            </div>
+                            <a href="index.php" class="submitBtn" style = "text-decoration: none;  display: inline-block;">OK</a>
+                        </div>
+                    </div>';
+                    }
+                ?>
 </body>
 </html>
