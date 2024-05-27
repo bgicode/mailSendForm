@@ -1,9 +1,6 @@
 <?php
 declare(strict_types = 1);
 
-require_once('phpmailer/PHPMailer.php');
-require_once('phpmailer/SMTP.php');
-require_once('phpmailer/Exception.php');
 include_once('functions.php');
 include_once("result.php");
 include_once('SendMailSmtpClass.php');
@@ -13,6 +10,15 @@ $site = $_SERVER['HTTP_HOST'];
 $subject = "С сайта: $site отправлено сообщение";
 
 if ($_POST['submit_btn']) {
+
+    $username = "TtKDlDkv3dE2";
+    $password = "PwwLiM8iVzZp";
+    // $username = "zwV5XDkwhFev";
+    // $password = "XKnvNXXPcXq0";
+    $host = "smtp.mailsnag.com";
+    $port = "2525";
+
+    $smtp = new SendMailSmtpClass($username, $password, $host, $mailFrom, $port);
 
     $name = trim($_POST['user_name']);
     $email = trim($_POST['user_email']);
@@ -36,7 +42,7 @@ if ($_POST['submit_btn']) {
     ) {
         $body = Message($name, $rcptName, $text);
 
-        $send = MailSend($body, $email, $rcptEmail, $subject);
+        $send = MailSend($body, $email, $rcptEmail, $subject, $smtp);
 
         exit(EndSend($send));
     }
