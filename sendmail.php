@@ -26,14 +26,10 @@ if ($_POST['submit_btn']) {
     $rcptEmail = trim($_POST['rcpt_email']);
     $text = trim(htmlspecialchars($_POST['message']));
 
-    $regExName = '/[а-яА-я][а-я]*([ ][а-яА-я][а-я]*){0,2}/';
-    $regExEmail = '/[-0-9a-z_\.]+@[-0-9a-z^\.]+\.[a-z]{2,}/i';
-
-    $ValidName = Validation($regExName, $name);
-    $ValidEmail = Validation($regExEmail, $email);
-    $ValidRcptName = Validation($regExName, $rcptName);
-    $ValidRcptEmail = Validation($regExEmail, $rcptEmail);
-
+    $ValidName = Validation($name, 'text');
+    $ValidEmail = Validation($email, 'email');
+    $ValidRcptName = Validation($rcptName, 'text');
+    $ValidRcptEmail = Validation($rcptEmail, 'email');
 
     if (!$ValidName
         && !$ValidEmail

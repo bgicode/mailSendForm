@@ -19,8 +19,14 @@ function Message(string $name, string $rcptName, string $message): string
     return "Уважаемый $rcptName, вам отправлено письмо от $name с сообщением: $message";
 }
 
-function Validation(string $regEx, string $field): mixed
+function Validation(string $field, string $fieldType): mixed
 {
+    if ($fieldType == 'email') {
+        $regEx = '/[-0-9a-z_\.]+@[-0-9a-z^\.]+\.[a-z]{2,}/i';
+    } elseif ($fieldType == 'text') {
+        $regEx = '/[а-яА-я][а-я]*([ ][а-яА-я][а-я]*){0,2}/';
+    }
+
     if (preg_match($regEx, $field)) {
         $message = false;
     } else {
