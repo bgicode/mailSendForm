@@ -16,34 +16,47 @@ include_once('sendmail.php');
         <div class="formWraper">
             <form class="form" name="feedback" method="POST" action="<?php $_SERVER['REQUEST_URI'] ?>">
                 <div class="caption"><h1>Обратная связь</h1></div>
-                <div class="formTitle">Ваше имя</div>
+                <div class="formTitle">
+                    Ваше имя
+                    <?php
+                    if ($ValidName) {
+                        echo '<span class="message">' . $ValidName . '</span>';
+                    }
+                    ?>
+                </div>
                 <input class="inputField" type="text" name="user_name" value="<?= AutoComplite($name) ?>" required>
-                <?php
-                if ($ValidName) {
-                    echo '<p class="message">' . $ValidName . '</p>';
-                }
-                ?>
-                <div class="formTitle">Ваш email</div>
+                
+                <div class="formTitle">
+                    Ваш email
+                    <?php
+                    if ($ValidEmail) {
+                        echo '<span class="message">' . $ValidEmail . '</span>';
+                    }
+                    ?>
+                </div>
                 <input class="inputField" type="email" name="user_email" value="<?= AutoComplite($email) ?>" required>
-                <?php
-                if ($ValidEmail) {
-                    echo '<p class="message">' . $ValidEmail . '</p>';
-                }
-                ?>
-                <div class="formTitle">Имя получателя</div>
+                
+                <div class="formTitle">
+                    Имя получателя
+                    <?php
+                    if ($ValidRcptName) {
+                        echo '<span class="message">' . $ValidRcptName . '</span>';
+                    }
+                    ?>
+                </div>
+                
                 <input class="inputField" type="text" name="rcpt_name" value="<?= AutoComplite($rcptName) ?>" required>
-                <?php
-                if ($ValidRcptName) {
-                    echo '<p class="message">' . $ValidRcptName . '</p>';
-                }
-                ?>
-                <div  class="formTitle">email получателя</div>
+                
+                <div  class="formTitle">
+                    email получателя
+                    <?php
+                    if ($ValidRcptEmail) {
+                        echo '<span class="message">' . $ValidRcptEmail . '</span>';
+                    }
+                    ?>
+                </div>
                 <input class="inputField" type="email" name="rcpt_email" value="<?= AutoComplite($rcptEmail) ?>" required>
-                <?php
-                if ($ValidRcptEmail) {
-                    echo '<p class="message">' . $ValidRcptEmail . '</p>';
-                }
-                ?>
+                
                 <div  class="formTitle">Сообщение</div>
                 <textarea name="message"></textarea>
                 <div>

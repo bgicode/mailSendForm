@@ -95,6 +95,7 @@ form {
 .message {
     margin-top: 0;
     color: rgb(255, 123, 0);
+    float: right;
 }
 
 .endMessage {
