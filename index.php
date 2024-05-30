@@ -68,16 +68,16 @@ include_once('sendmail.php');
         </div>
     </div>
     <?php
-                    if ($endSend) {
-                        echo '<div class="endMessageWrap">
-                        <div class="endformWraper">
-                            <div class="endMessage"> 
-                                <p>' . $send . '</p>
-                            </div>
-                            <a href="index.php" class="submitBtn" style = "text-decoration: none;  display: inline-block;">OK</a>
-                        </div>
-                    </div>';
-                    }
-                ?>
+    if ($endSend) {
+        echo '<div class="endMessageWrap">
+            <div class="endformWraper">
+                <div class="endMessage"> 
+                    <p>' . $send . '</p>
+                </div>
+                <a href="index.php" class="submitBtn" style = "text-decoration: none;  display: inline-block;">OK</a>
+            </div>
+        </div>';
+    }
+    ?>
 </body>
 </html>
